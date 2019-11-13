@@ -1,251 +1,714 @@
 {\rtf1\ansi\ansicpg1251\cocoartf1561\cocoasubrtf600
-{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\fnil\fcharset0 Menlo-Regular;}
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;\red255\green0\blue0;\red0\green0\blue128;
-\red128\green128\blue128;\red0\green0\blue255;\red0\green128\blue0;}
+\red0\green0\blue255;\red0\green128\blue0;\red128\green128\blue128;}
 {\*\expandedcolortbl;;\csgenericrgb\c50196\c0\c0;\csgenericrgb\c100000\c0\c0;\csgenericrgb\c0\c0\c50196;
-\csgenericrgb\c50196\c50196\c50196;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c0\c50196\c0;}
+\csgenericrgb\c0\c0\c100000;\csgenericrgb\c0\c50196\c0;\csgenericrgb\c50196\c50196\c50196;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\deftab720
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\b\fs24 \cf2 USE
-\f1\b0 \cf0  vk_lessons\cf3 ;\cf0 \
+\f1\b \cf2 USE
+\f0\b0 \cf0  vk_lessons\cf3 ;\cf0 \
 \
 
-\f0\b \cf2 UPDATE
-\f1\b0 \cf0  users 
-\f0\b \cf4 SET
-\f1\b0 \cf0  created_at=
-\f0\b \cf4 NOW
-\f1\b0 \cf0 (),updated_at=
-\f0\b \cf4 NOW
-\f1\b0 \cf0 ()\cf3 ;\cf0  \
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  catalogs\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  catalogs (\
+  id SERIAL 
+\f1\b \cf2 PRIMARY
+\f0\b0 \cf0  
+\f1\b \cf2 KEY
+\f0\b0 \cf0 ,\
+  name 
+\f1\b \cf4 VARCHAR
+\f0\b0 \cf0 (\cf5 255\cf0 ) COMMENT \cf6 '\uc0\u1053 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1077  \u1088 \u1072 \u1079 \u1076 \u1077 \u1083 \u1072 '\cf0 ,\
+  
+\f1\b \cf2 UNIQUE
+\f0\b0 \cf0  unique_name(name(\cf5 10\cf0 ))\
+) COMMENT = \cf6 '\uc0\u1056 \u1072 \u1079 \u1076 \u1077 \u1083 \u1099  \u1080 \u1085 \u1090 \u1077 \u1088 \u1085 \u1077 \u1090 -\u1084 \u1072 \u1075 \u1072 \u1079 \u1080 \u1085 \u1072 '\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 INSERT
+\f0\b0 \cf0  
+\f1\b \cf2 INTO
+\f0\b0 \cf0  catalogs 
+\f1\b \cf2 VALUES
+\f0\b0 \cf0 \
+  (
+\f1\b \cf2 NULL
+\f0\b0 \cf0 , \cf6 '\uc0\u1055 \u1088 \u1086 \u1094 \u1077 \u1089 \u1089 \u1086 \u1088 \u1099 '\cf0 ),\
+  (
+\f1\b \cf2 NULL
+\f0\b0 \cf0 , \cf6 '\uc0\u1052 \u1072 \u1090 \u1077 \u1088 \u1080 \u1085 \u1089 \u1082 \u1080 \u1077  \u1087 \u1083 \u1072 \u1090 \u1099 '\cf0 ),\
+  (
+\f1\b \cf2 NULL
+\f0\b0 \cf0 , \cf6 '\uc0\u1042 \u1080 \u1076 \u1077 \u1086 \u1082 \u1072 \u1088 \u1090 \u1099 '\cf0 ),\
+  (
+\f1\b \cf2 NULL
+\f0\b0 \cf0 , \cf6 '\uc0\u1046 \u1077 \u1089 \u1090 \u1082 \u1080 \u1077  \u1076 \u1080 \u1089 \u1082 \u1080 '\cf0 ),\
+  (
+\f1\b \cf2 NULL
+\f0\b0 \cf0 , \cf6 '\uc0\u1054 \u1087 \u1077 \u1088 \u1072 \u1090 \u1080 \u1074 \u1085 \u1072 \u1103  \u1087 \u1072 \u1084 \u1103 \u1090 \u1100 '\cf0 )\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  users\cf3 ;\cf0 \
+
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  users (\
+  id SERIAL 
+\f1\b \cf2 PRIMARY
+\f0\b0 \cf0  
+\f1\b \cf2 KEY
+\f0\b0 \cf0 ,\
+  name 
+\f1\b \cf4 VARCHAR
+\f0\b0 \cf0 (\cf5 255\cf0 ) COMMENT \cf6 '\uc0\u1048 \u1084 \u1103  \u1087 \u1086 \u1082 \u1091 \u1087 \u1072 \u1090 \u1077 \u1083 \u1103 '\cf0 ,\
+  birthday_at 
+\f1\b \cf4 DATE
+\f0\b0 \cf0  COMMENT \cf6 '\uc0\u1044 \u1072 \u1090 \u1072  \u1088 \u1086 \u1078 \u1076 \u1077 \u1085 \u1080 \u1103 '\cf0 ,\
+  created_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  updated_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0  
+\f1\b \cf2 ON
+\f0\b0 \cf0  
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 \
+) COMMENT = \cf6 '\uc0\u1055 \u1086 \u1082 \u1091 \u1087 \u1072 \u1090 \u1077 \u1083 \u1080 '\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 INSERT
+\f0\b0 \cf0  
+\f1\b \cf2 INTO
+\f0\b0 \cf0  users (name, birthday_at) 
+\f1\b \cf2 VALUES
+\f0\b0 \cf0 \
+  (\cf6 '\uc0\u1043 \u1077 \u1085 \u1085 \u1072 \u1076 \u1080 \u1081 '\cf0 , \cf6 '1990-10-05'\cf0 ),\
+  (\cf6 '\uc0\u1053 \u1072 \u1090 \u1072 \u1083 \u1100 \u1103 '\cf0 , \cf6 '1984-11-12'\cf0 ),\
+  (\cf6 '\uc0\u1040 \u1083 \u1077 \u1082 \u1089 \u1072 \u1085 \u1076 \u1088 '\cf0 , \cf6 '1985-05-20'\cf0 ),\
+  (\cf6 '\uc0\u1057 \u1077 \u1088 \u1075 \u1077 \u1081 '\cf0 , \cf6 '1988-02-14'\cf0 ),\
+  (\cf6 '\uc0\u1048 \u1074 \u1072 \u1085 '\cf0 , \cf6 '1998-01-12'\cf0 ),\
+  (\cf6 '\uc0\u1052 \u1072 \u1088 \u1080 \u1103 '\cf0 , \cf6 '1992-08-29'\cf0 )\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  products\cf3 ;\cf0 \
+
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  products (\
+  id SERIAL 
+\f1\b \cf2 PRIMARY
+\f0\b0 \cf0  
+\f1\b \cf2 KEY
+\f0\b0 \cf0 ,\
+  name 
+\f1\b \cf4 VARCHAR
+\f0\b0 \cf0 (\cf5 255\cf0 ) COMMENT \cf6 '\uc0\u1053 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1077 '\cf0 ,\
+  description 
+\f1\b \cf4 TEXT
+\f0\b0 \cf0  COMMENT \cf6 '\uc0\u1054 \u1087 \u1080 \u1089 \u1072 \u1085 \u1080 \u1077 '\cf0 ,\
+  price 
+\f1\b \cf4 DECIMAL
+\f0\b0 \cf0  (\cf5 11\cf0 ,\cf5 2\cf0 ) COMMENT \cf6 '\uc0\u1062 \u1077 \u1085 \u1072 '\cf0 ,\
+  catalog_id 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0 ,\
+  created_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  updated_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0  
+\f1\b \cf2 ON
+\f0\b0 \cf0  
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  
+\f1\b \cf2 KEY
+\f0\b0 \cf0  index_of_catalog_id (catalog_id)\
+) COMMENT = \cf6 '\uc0\u1058 \u1086 \u1074 \u1072 \u1088 \u1085 \u1099 \u1077  \u1087 \u1086 \u1079 \u1080 \u1094 \u1080 \u1080 '\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 INSERT
+\f0\b0 \cf0  
+\f1\b \cf2 INTO
+\f0\b0 \cf0  products\
+  (name, description, price, catalog_id)\
+
+\f1\b \cf2 VALUES
+\f0\b0 \cf0 \
+  (\cf6 'Intel Core i3-8100'\cf0 , \cf6 '\uc0\u1055 \u1088 \u1086 \u1094 \u1077 \u1089 \u1089 \u1086 \u1088  \u1076 \u1083 \u1103  \u1085 \u1072 \u1089 \u1090 \u1086 \u1083 \u1100 \u1085 \u1099 \u1093  \u1087 \u1077 \u1088 \u1089 \u1086 \u1085 \u1072 \u1083 \u1100 \u1085 \u1099 \u1093  \u1082 \u1086 \u1084 \u1087 \u1100 \u1102 \u1090 \u1077 \u1088 \u1086 \u1074 , \u1086 \u1089 \u1085 \u1086 \u1074 \u1072 \u1085 \u1085 \u1099 \u1093  \u1085 \u1072  \u1087 \u1083 \u1072 \u1090 \u1092 \u1086 \u1088 \u1084 \u1077  Intel.'\cf0 , \cf5 7890\cf0 .\cf5 00\cf0 , \cf5 1\cf0 ),\
+  (\cf6 'Intel Core i5-7400'\cf0 , \cf6 '\uc0\u1055 \u1088 \u1086 \u1094 \u1077 \u1089 \u1089 \u1086 \u1088  \u1076 \u1083 \u1103  \u1085 \u1072 \u1089 \u1090 \u1086 \u1083 \u1100 \u1085 \u1099 \u1093  \u1087 \u1077 \u1088 \u1089 \u1086 \u1085 \u1072 \u1083 \u1100 \u1085 \u1099 \u1093  \u1082 \u1086 \u1084 \u1087 \u1100 \u1102 \u1090 \u1077 \u1088 \u1086 \u1074 , \u1086 \u1089 \u1085 \u1086 \u1074 \u1072 \u1085 \u1085 \u1099 \u1093  \u1085 \u1072  \u1087 \u1083 \u1072 \u1090 \u1092 \u1086 \u1088 \u1084 \u1077  Intel.'\cf0 , \cf5 12700\cf0 .\cf5 00\cf0 , \cf5 1\cf0 ),\
+  (\cf6 'AMD FX-8320E'\cf0 , \cf6 '\uc0\u1055 \u1088 \u1086 \u1094 \u1077 \u1089 \u1089 \u1086 \u1088  \u1076 \u1083 \u1103  \u1085 \u1072 \u1089 \u1090 \u1086 \u1083 \u1100 \u1085 \u1099 \u1093  \u1087 \u1077 \u1088 \u1089 \u1086 \u1085 \u1072 \u1083 \u1100 \u1085 \u1099 \u1093  \u1082 \u1086 \u1084 \u1087 \u1100 \u1102 \u1090 \u1077 \u1088 \u1086 \u1074 , \u1086 \u1089 \u1085 \u1086 \u1074 \u1072 \u1085 \u1085 \u1099 \u1093  \u1085 \u1072  \u1087 \u1083 \u1072 \u1090 \u1092 \u1086 \u1088 \u1084 \u1077  AMD.'\cf0 , \cf5 4780\cf0 .\cf5 00\cf0 , \cf5 1\cf0 ),\
+  (\cf6 'AMD FX-8320'\cf0 , \cf6 '\uc0\u1055 \u1088 \u1086 \u1094 \u1077 \u1089 \u1089 \u1086 \u1088  \u1076 \u1083 \u1103  \u1085 \u1072 \u1089 \u1090 \u1086 \u1083 \u1100 \u1085 \u1099 \u1093  \u1087 \u1077 \u1088 \u1089 \u1086 \u1085 \u1072 \u1083 \u1100 \u1085 \u1099 \u1093  \u1082 \u1086 \u1084 \u1087 \u1100 \u1102 \u1090 \u1077 \u1088 \u1086 \u1074 , \u1086 \u1089 \u1085 \u1086 \u1074 \u1072 \u1085 \u1085 \u1099 \u1093  \u1085 \u1072  \u1087 \u1083 \u1072 \u1090 \u1092 \u1086 \u1088 \u1084 \u1077  AMD.'\cf0 , \cf5 7120\cf0 .\cf5 00\cf0 , \cf5 1\cf0 ),\
+  (\cf6 'ASUS ROG MAXIMUS X HERO'\cf0 , \cf6 '\uc0\u1052 \u1072 \u1090 \u1077 \u1088 \u1080 \u1085 \u1089 \u1082 \u1072 \u1103  \u1087 \u1083 \u1072 \u1090 \u1072  ASUS ROG MAXIMUS X HERO, Z370, Socket 1151-V2, DDR4, ATX'\cf0 , \cf5 19310\cf0 .\cf5 00\cf0 , \cf5 2\cf0 ),\
+  (\cf6 'Gigabyte H310M S2H'\cf0 , \cf6 '\uc0\u1052 \u1072 \u1090 \u1077 \u1088 \u1080 \u1085 \u1089 \u1082 \u1072 \u1103  \u1087 \u1083 \u1072 \u1090 \u1072  Gigabyte H310M S2H, H310, Socket 1151-V2, DDR4, mATX'\cf0 , \cf5 4790\cf0 .\cf5 00\cf0 , \cf5 2\cf0 ),\
+  (\cf6 'MSI B250M GAMING PRO'\cf0 , \cf6 '\uc0\u1052 \u1072 \u1090 \u1077 \u1088 \u1080 \u1085 \u1089 \u1082 \u1072 \u1103  \u1087 \u1083 \u1072 \u1090 \u1072  MSI B250M GAMING PRO, B250, Socket 1151, DDR4, mATX'\cf0 , \cf5 5060\cf0 .\cf5 00\cf0 , \cf5 2\cf0 )\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  orders\cf3 ;\cf0 \
+
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  orders (\
+  id SERIAL 
+\f1\b \cf2 PRIMARY
+\f0\b0 \cf0  
+\f1\b \cf2 KEY
+\f0\b0 \cf0 ,\
+  user_id 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0 ,\
+  created_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  updated_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0  
+\f1\b \cf2 ON
+\f0\b0 \cf0  
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  
+\f1\b \cf2 KEY
+\f0\b0 \cf0  index_of_user_id(user_id)\
+) COMMENT = \cf6 '\uc0\u1047 \u1072 \u1082 \u1072 \u1079 \u1099 '\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  orders_products\cf3 ;\cf0 \
+
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  orders_products (\
+  id SERIAL 
+\f1\b \cf2 PRIMARY
+\f0\b0 \cf0  
+\f1\b \cf2 KEY
+\f0\b0 \cf0 ,\
+  order_id 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0 ,\
+  product_id 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0 ,\
+  total 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  \cf5 1\cf0  COMMENT \cf6 '\uc0\u1050 \u1086 \u1083 \u1080 \u1095 \u1077 \u1089 \u1090 \u1074 \u1086  \u1079 \u1072 \u1082 \u1072 \u1079 \u1072 \u1085 \u1085 \u1099 \u1093  \u1090 \u1086 \u1074 \u1072 \u1088 \u1085 \u1099 \u1093  \u1087 \u1086 \u1079 \u1080 \u1094 \u1080 \u1081 '\cf0 ,\
+  created_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  updated_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0  
+\f1\b \cf2 ON
+\f0\b0 \cf0  
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 \
+) COMMENT = \cf6 '\uc0\u1057 \u1086 \u1089 \u1090 \u1072 \u1074  \u1079 \u1072 \u1082 \u1072 \u1079 \u1072 '\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  discounts\cf3 ;\cf0 \
+
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  discounts (\
+  id SERIAL 
+\f1\b \cf2 PRIMARY
+\f0\b0 \cf0  
+\f1\b \cf2 KEY
+\f0\b0 \cf0 ,\
+  user_id 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0 ,\
+  product_id 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0 ,\
+  discount 
+\f1\b \cf4 FLOAT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0  COMMENT \cf6 '\uc0\u1042 \u1077 \u1083 \u1080 \u1095 \u1080 \u1085 \u1072  \u1089 \u1082 \u1080 \u1076 \u1082 \u1080  \u1086 \u1090  0.0 \u1076 \u1086  1.0'\cf0 ,\
+  started_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0 ,\
+  finished_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0 ,\
+  created_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  updated_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0  
+\f1\b \cf2 ON
+\f0\b0 \cf0  
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  
+\f1\b \cf2 KEY
+\f0\b0 \cf0  index_of_user_id(user_id),\
+  
+\f1\b \cf2 KEY
+\f0\b0 \cf0  index_of_product_id(product_id)\
+) COMMENT = \cf6 '\uc0\u1057 \u1082 \u1080 \u1076 \u1082 \u1080 '\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  storehouses\cf3 ;\cf0 \
+
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  storehouses (\
+  id SERIAL 
+\f1\b \cf2 PRIMARY
+\f0\b0 \cf0  
+\f1\b \cf2 KEY
+\f0\b0 \cf0 ,\
+  name 
+\f1\b \cf4 VARCHAR
+\f0\b0 \cf0 (\cf5 255\cf0 ) COMMENT \cf6 '\uc0\u1053 \u1072 \u1079 \u1074 \u1072 \u1085 \u1080 \u1077 '\cf0 ,\
+  created_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  updated_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0  
+\f1\b \cf2 ON
+\f0\b0 \cf0  
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 \
+) COMMENT = \cf6 '\uc0\u1057 \u1082 \u1083 \u1072 \u1076 \u1099 '\cf3 ;\cf0 \
+\
+
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  storehouses_products\cf3 ;\cf0 \
+
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  storehouses_products (\
+  id SERIAL 
+\f1\b \cf2 PRIMARY
+\f0\b0 \cf0  
+\f1\b \cf2 KEY
+\f0\b0 \cf0 ,\
+  storehouse_id 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0 ,\
+  product_id 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0 ,\
+  value 
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 UNSIGNED
+\f0\b0 \cf0  COMMENT \cf6 '\uc0\u1047 \u1072 \u1087 \u1072 \u1089  \u1090 \u1086 \u1074 \u1072 \u1088 \u1085 \u1086 \u1081  \u1087 \u1086 \u1079 \u1080 \u1094 \u1080 \u1080  \u1085 \u1072  \u1089 \u1082 \u1083 \u1072 \u1076 \u1077 '\cf0 ,\
+  created_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 ,\
+  updated_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0  
+\f1\b \cf2 ON
+\f0\b0 \cf0  
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 \
+) COMMENT = \cf6 '\uc0\u1047 \u1072 \u1087 \u1072 \u1089 \u1099  \u1085 \u1072  \u1089 \u1082 \u1083 \u1072 \u1076 \u1077 '\cf3 ;\cf0 \
+\
+-- \uc0\u1079 \u1072 \u1083 \u1080 \u1074 \u1082 \u1072  \u1076 \u1072 \u1085 \u1085 \u1099 \u1093 \
+\
+\
+\
+
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  users 
+\f1\b \cf4 SET
+\f0\b0 \cf0  created_at=
+\f1\b \cf4 NOW
+\f0\b0 \cf0 (),updated_at=
+\f1\b \cf4 NOW
+\f0\b0 \cf0 ()\cf3 ;\cf0  \
 \pard\pardeftab720\partightenfactor0
-\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.1\cf0 \
+\cf7 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.1\cf0 \
 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\b \cf2 ALTER
-\f1\b0 \cf0  
-\f0\b \cf2 TABLE
-\f1\b0 \cf0  users \
+\f1\b \cf2 ALTER
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  users \
 
-\f0\b \cf2 CHANGE
-\f1\b0 \cf0  created_at created_at 
-\f0\b \cf4 DATETIME
-\f1\b0 \cf0  
-\f0\b \cf2 DEFAULT
-\f1\b0 \cf0  
-\f0\b \cf4 CURRENT_TIMESTAMP
-\f1\b0 \cf0 , \
+\f1\b \cf2 CHANGE
+\f0\b0 \cf0  created_at created_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0 , \
 
-\f0\b \cf2 CHANGE
-\f1\b0 \cf0  updated_at updated_at 
-\f0\b \cf4 DATETIME
-\f1\b0 \cf0  
-\f0\b \cf2 DEFAULT
-\f1\b0 \cf0  
-\f0\b \cf4 CURRENT_TIMESTAMP
-\f1\b0 \cf0  
-\f0\b \cf2 ON
-\f1\b0 \cf0  
-\f0\b \cf2 UPDATE
-\f1\b0 \cf0  
-\f0\b \cf4 CURRENT_TIMESTAMP
-\f1\b0 \cf3 ;\cf0 \
+\f1\b \cf2 CHANGE
+\f0\b0 \cf0  updated_at updated_at 
+\f1\b \cf4 DATETIME
+\f0\b0 \cf0  
+\f1\b \cf2 DEFAULT
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf0  
+\f1\b \cf2 ON
+\f0\b0 \cf0  
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  
+\f1\b \cf4 CURRENT_TIMESTAMP
+\f0\b0 \cf3 ;\cf0 \
 \pard\pardeftab720\partightenfactor0
-\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.2\cf0 \
+\cf7 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.2\cf0 \
 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\b \cf2 INSERT
-\f1\b0 \cf0  
-\f0\b \cf2 INTO
-\f1\b0 \cf0  storehouses_products (value) 
-\f0\b \cf2 VALUES
-\f1\b0 \cf0  \cf5 -- \uc0\u1074  \u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1077  \u1085 \u1077  \u1073 \u1099 \u1083 \u1086  \u1076 \u1072 \u1085 \u1085 \u1099 \u1093 \cf0 \
-(\cf6 1\cf0 ),(\cf6 2\cf0 ),(\cf6 3\cf0 ),(\cf6 0\cf0 ),(\cf6 0\cf0 )\cf3 ;\cf0 \
+\f1\b \cf2 INSERT
+\f0\b0 \cf0  
+\f1\b \cf2 INTO
+\f0\b0 \cf0  storehouses_products (value) 
+\f1\b \cf2 VALUES
+\f0\b0 \cf0  \cf7 -- \uc0\u1074  \u1090 \u1072 \u1073 \u1083 \u1080 \u1094 \u1077  \u1085 \u1077  \u1073 \u1099 \u1083 \u1086  \u1076 \u1072 \u1085 \u1085 \u1099 \u1093 \cf0 \
+(\cf5 1\cf0 ),(\cf5 2\cf0 ),(\cf5 3\cf0 ),(\cf5 0\cf0 ),(\cf5 0\cf0 )\cf3 ;\cf0 \
 \
 
-\f0\b \cf2 ALTER
-\f1\b0 \cf0  
-\f0\b \cf2 TABLE
-\f1\b0 \cf0  storehouses_products \
+\f1\b \cf2 ALTER
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  storehouses_products \
 
-\f0\b \cf2 ADD
-\f1\b0 \cf0  test_col 
-\f0\b \cf4 INT
-\f1\b0 \cf3 ;\cf0 \
+\f1\b \cf2 ADD
+\f0\b0 \cf0  test_col 
+\f1\b \cf4 INT
+\f0\b0 \cf3 ;\cf0 \
 \
 
-\f0\b \cf2 UPDATE
-\f1\b0 \cf0  storehouses_products \
-\pard\pardeftab720\partightenfactor0
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  storehouses_products \
 
-\f0\b \cf4 SET
-\f1\b0 \cf0  test_col = \cf6 1\cf0  \
-\pard\pardeftab720\partightenfactor0
+\f1\b \cf4 SET
+\f0\b0 \cf0  test_col = \cf5 1\cf0  \
 
-\f0\b \cf2 WHERE
-\f1\b0 \cf0  value > \cf6 0\cf3 ;\cf0 \
+\f1\b \cf2 WHERE
+\f0\b0 \cf0  value > \cf5 0\cf3 ;\cf0 \
 \
 
-\f0\b \cf2 UPDATE
-\f1\b0 \cf0  storehouses_products \
-\pard\pardeftab720\partightenfactor0
+\f1\b \cf2 UPDATE
+\f0\b0 \cf0  storehouses_products \
 
-\f0\b \cf4 SET
-\f1\b0 \cf0  test_col = \cf6 0\cf0  \
-\pard\pardeftab720\partightenfactor0
+\f1\b \cf4 SET
+\f0\b0 \cf0  test_col = \cf5 0\cf0  \
 
-\f0\b \cf2 WHERE
-\f1\b0 \cf0  value = \cf6 0\cf3 ;\cf0 \
+\f1\b \cf2 WHERE
+\f0\b0 \cf0  value = \cf5 0\cf3 ;\cf0 \
 \
 
-\f0\b \cf2 SELECT
-\f1\b0 \cf0  * 
-\f0\b \cf2 FROM
-\f1\b0 \cf0  storehouses_products 
-\f0\b \cf2 ORDER
-\f1\b0 \cf0  
-\f0\b \cf2 BY
-\f1\b0 \cf0  test_col 
-\f0\b \cf2 DESC
-\f1\b0 \cf3 ;\cf0 \
+\f1\b \cf2 SELECT
+\f0\b0 \cf0  * 
+\f1\b \cf2 FROM
+\f0\b0 \cf0  storehouses_products 
+\f1\b \cf2 ORDER
+\f0\b0 \cf0  
+\f1\b \cf2 BY
+\f0\b0 \cf0  test_col 
+\f1\b \cf2 DESC
+\f0\b0 \cf3 ;\cf0 \
 \
 
-\f0\b \cf2 ALTER
-\f1\b0 \cf0  
-\f0\b \cf2 TABLE
-\f1\b0 \cf0  storehouses_products \
+\f1\b \cf2 ALTER
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  storehouses_products \
 
-\f0\b \cf2 DROP
-\f1\b0 \cf0  test_col\cf3 ;\cf0 \
+\f1\b \cf2 DROP
+\f0\b0 \cf0  test_col\cf3 ;\cf0 \
 \
-\pard\pardeftab720\partightenfactor0
 
-\f0\b \cf4 TRUNCATE
-\f1\b0 \cf0  storehouses_products\cf3 ;\cf0 \
+\f1\b \cf4 TRUNCATE
+\f0\b0 \cf0  storehouses_products\cf3 ;\cf0 \
 \pard\pardeftab720\partightenfactor0
-\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.3\cf0 \
+\cf7 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.3\cf0 \
 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\b \cf2 SELECT
-\f1\b0 \cf0  * 
-\f0\b \cf2 FROM
-\f1\b0 \cf0  users 
-\f0\b \cf2 WHERE
-\f1\b0 \cf0  
-\f0\b \cf4 MONTHNAME
-\f1\b0 \cf0 (birthday_at) 
-\f0\b \cf2 IN
-\f1\b0 \cf0  (\cf7 'may'\cf0 ,\cf7 'august'\cf0 )\cf3 ;\cf0 \
+\f1\b \cf2 SELECT
+\f0\b0 \cf0  * 
+\f1\b \cf2 FROM
+\f0\b0 \cf0  users 
+\f1\b \cf2 WHERE
+\f0\b0 \cf0  
+\f1\b \cf4 MONTHNAME
+\f0\b0 \cf0 (birthday_at) 
+\f1\b \cf2 IN
+\f0\b0 \cf0  (\cf6 'may'\cf0 ,\cf6 'august'\cf0 )\cf3 ;\cf0 \
 \pard\pardeftab720\partightenfactor0
-\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.4\cf0 \
+\cf7 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.4\cf0 \
 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\b \cf2 SELECT
-\f1\b0 \cf0  * 
-\f0\b \cf2 FROM
-\f1\b0 \cf0  users 
-\f0\b \cf2 WHERE
-\f1\b0 \cf0  id 
-\f0\b \cf2 IN
-\f1\b0 \cf0  (\cf6 5\cf0 ,\cf6 1\cf0 ,\cf6 2\cf0 ) 
-\f0\b \cf2 ORDER
-\f1\b0 \cf0  
-\f0\b \cf2 BY
-\f1\b0 \cf0  
-\f0\b \cf4 FIELD
-\f1\b0 \cf0 (id,\cf6 5\cf0 ,\cf6 1\cf0 ,\cf6 2\cf0 )\cf3 ;\cf0 \
+\f1\b \cf2 SELECT
+\f0\b0 \cf0  * 
+\f1\b \cf2 FROM
+\f0\b0 \cf0  users 
+\f1\b \cf2 WHERE
+\f0\b0 \cf0  id 
+\f1\b \cf2 IN
+\f0\b0 \cf0  (\cf5 5\cf0 ,\cf5 1\cf0 ,\cf5 2\cf0 ) 
+\f1\b \cf2 ORDER
+\f0\b0 \cf0  
+\f1\b \cf2 BY
+\f0\b0 \cf0  
+\f1\b \cf4 FIELD
+\f0\b0 \cf0 (id,\cf5 5\cf0 ,\cf5 1\cf0 ,\cf5 2\cf0 )\cf3 ;\cf0 \
 \pard\pardeftab720\partightenfactor0
-\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.5\cf0 \
+\cf7 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.5\cf0 \
 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\b \cf2 SELECT
-\f1\b0 \cf0  
-\f0\b \cf4 AVG
-\f1\b0 \cf0 (TIMESTAMPDIFF(
-\f0\b \cf2 DAY
-\f1\b0 \cf0 ,birthday_at,
-\f0\b \cf4 NOW
-\f1\b0 \cf0 ())/\cf6 365\cf0 .\cf6 25\cf0 ) 
-\f0\b \cf2 FROM
-\f1\b0 \cf0  users\cf3 ;\cf0 \
+\f1\b \cf2 SELECT
+\f0\b0 \cf0  
+\f1\b \cf4 AVG
+\f0\b0 \cf0 (TIMESTAMPDIFF(
+\f1\b \cf2 DAY
+\f0\b0 \cf0 ,birthday_at,
+\f1\b \cf4 NOW
+\f0\b0 \cf0 ())/\cf5 365\cf0 .\cf5 25\cf0 ) 
+\f1\b \cf2 FROM
+\f0\b0 \cf0  users\cf3 ;\cf0 \
 \pard\pardeftab720\partightenfactor0
-\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  2.1\cf0 \
+\cf7 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  2.1\cf0 \
 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\b \cf2 SELECT
-\f1\b0 \cf0  
-\f0\b \cf4 COUNT
-\f1\b0 \cf0 (*), GROUP_CONCAT(name), 
-\f0\b \cf4 DAYNAME
-\f1\b0 \cf0 (birthday_at) 
-\f0\b \cf2 FROM
-\f1\b0 \cf0  users 
-\f0\b \cf2 GROUP
-\f1\b0 \cf0  
-\f0\b \cf2 BY
-\f1\b0 \cf0  
-\f0\b \cf4 DAYNAME
-\f1\b0 \cf0 (birthday_at)\cf3 ;\cf0 \
+\f1\b \cf2 SELECT
+\f0\b0 \cf0  
+\f1\b \cf4 COUNT
+\f0\b0 \cf0 (*), GROUP_CONCAT(name), 
+\f1\b \cf4 DAYNAME
+\f0\b0 \cf0 (birthday_at) 
+\f1\b \cf2 FROM
+\f0\b0 \cf0  users 
+\f1\b \cf2 GROUP
+\f0\b0 \cf0  
+\f1\b \cf2 BY
+\f0\b0 \cf0  
+\f1\b \cf4 DAYNAME
+\f0\b0 \cf0 (birthday_at)\cf3 ;\cf0 \
 \pard\pardeftab720\partightenfactor0
-\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  2.2\cf0 \
+\cf7 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  2.2\cf0 \
 \
 \pard\pardeftab720\partightenfactor0
 
-\f0\b \cf2 DROP
-\f1\b0 \cf0  
-\f0\b \cf2 TABLE
-\f1\b0 \cf0  
-\f0\b \cf2 IF
-\f1\b0 \cf0  
-\f0\b \cf2 EXISTS
-\f1\b0 \cf0  value_tab\cf3 ;\cf0 \
+\f1\b \cf2 DROP
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  
+\f1\b \cf2 IF
+\f0\b0 \cf0  
+\f1\b \cf2 EXISTS
+\f0\b0 \cf0  value_tab\cf3 ;\cf0 \
 \
 
-\f0\b \cf2 CREATE
-\f1\b0 \cf0  
-\f0\b \cf2 TABLE
-\f1\b0 \cf0  value_tab(\
+\f1\b \cf2 CREATE
+\f0\b0 \cf0  
+\f1\b \cf2 TABLE
+\f0\b0 \cf0  value_tab(\
 value 
-\f0\b \cf4 INT
-\f1\b0 \cf0  
-\f0\b \cf2 NOT
-\f1\b0 \cf0  
-\f0\b \cf2 NULL
-\f1\b0 \cf0 \
+\f1\b \cf4 INT
+\f0\b0 \cf0  
+\f1\b \cf2 NOT
+\f0\b0 \cf0  
+\f1\b \cf2 NULL
+\f0\b0 \cf0 \
 )\cf3 ;\cf0 \
 \
 
-\f0\b \cf2 INSERT
-\f1\b0 \cf0  
-\f0\b \cf2 INTO
-\f1\b0 \cf0  value_tab (value) 
-\f0\b \cf2 VALUES
-\f1\b0 \cf0 \
-(\cf6 1\cf0 ),(\cf6 22\cf0 ),(\cf6 31\cf0 )\cf3 ;\cf0 \
+\f1\b \cf2 INSERT
+\f0\b0 \cf0  
+\f1\b \cf2 INTO
+\f0\b0 \cf0  value_tab (value) 
+\f1\b \cf2 VALUES
+\f0\b0 \cf0 \
+(\cf5 1\cf0 ),(\cf5 22\cf0 ),(\cf5 31\cf0 )\cf3 ;\cf0 \
 \
 
-\f0\b \cf2 SELECT
-\f1\b0 \cf0  
-\f0\b \cf4 ROUND
-\f1\b0 \cf0 (
-\f0\b \cf2 EXP
-\f1\b0 \cf0 (
-\f0\b \cf4 SUM
-\f1\b0 \cf0 (
-\f0\b \cf4 LOG
-\f1\b0 \cf0 (value)))) 
-\f0\b \cf2 FROM
-\f1\b0 \cf0  value_tab\cf3 ;\cf0 \
+\f1\b \cf2 SELECT
+\f0\b0 \cf0  
+\f1\b \cf4 ROUND
+\f0\b0 \cf0 (
+\f1\b \cf2 EXP
+\f0\b0 \cf0 (
+\f1\b \cf4 SUM
+\f0\b0 \cf0 (
+\f1\b \cf4 LOG
+\f0\b0 \cf0 (value)))) 
+\f1\b \cf2 FROM
+\f0\b0 \cf0  value_tab\cf3 ;\cf0 \
 \pard\pardeftab720\partightenfactor0
-\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  2.3\cf0 \
+\cf7 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  2.3\cf0 \
 \
 \
 \
