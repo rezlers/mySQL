@@ -1,0 +1,138 @@
+{\rtf1\ansi\ansicpg1251\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red128\green0\blue0;\red0\green0\blue255;\red255\green0\blue0;
+\red128\green128\blue128;\red0\green0\blue128;\red0\green128\blue0;}
+{\*\expandedcolortbl;;\csgenericrgb\c50196\c0\c0;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c100000\c0\c0;
+\csgenericrgb\c50196\c50196\c50196;\csgenericrgb\c0\c0\c50196;\csgenericrgb\c0\c50196\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs24 \cf2 INSERT
+\f1\b0 \cf0  
+\f0\b \cf2 INTO
+\f1\b0 \cf0  orders (user_id) 
+\f0\b \cf2 VALUES
+\f1\b0 \cf0  (\cf3 1\cf0 ), (\cf3 2\cf0 ), (\cf3 3\cf0 ), (\cf3 4\cf0 )\cf4 ;\cf0 \
+\
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0  name 
+\f0\b \cf2 FROM
+\f1\b0 \cf0  users 
+\f0\b \cf2 JOIN
+\f1\b0 \cf0  orders 
+\f0\b \cf2 ON
+\f1\b0 \cf0  users.id = orders.user_id\cf4 ;\cf0 \
+\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.1\cf0 \
+\
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0  products.name, catalogs.id 
+\f0\b \cf2 FROM
+\f1\b0 \cf0  products 
+\f0\b \cf2 JOIN
+\f1\b0 \cf0  catalogs 
+\f0\b \cf2 ON
+\f1\b0 \cf0  products.catalog_id = catalogs.id\cf4 ;\cf0 \
+\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.2\cf0 \
+\
+
+\f0\b \cf2 DROP
+\f1\b0 \cf0  
+\f0\b \cf2 TABLE
+\f1\b0 \cf0  
+\f0\b \cf2 IF
+\f1\b0 \cf0  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf0  cities\cf4 ;\cf0 \
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf0  
+\f0\b \cf2 TABLE
+\f1\b0 \cf0  cities (\
+	label 
+\f0\b \cf6 VARCHAR
+\f1\b0 \cf0 (\cf3 100\cf0 ),\
+	city 
+\f0\b \cf6 VARCHAR
+\f1\b0 \cf0 (\cf3 100\cf0 )\
+)\cf4 ;\cf0 \
+\
+
+\f0\b \cf2 DROP
+\f1\b0 \cf0  
+\f0\b \cf2 TABLE
+\f1\b0 \cf0  
+\f0\b \cf2 IF
+\f1\b0 \cf0  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf0  flights\cf4 ;\cf0 \
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf0  
+\f0\b \cf2 TABLE
+\f1\b0 \cf0  flights (\
+	id SERIAL 
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf0  
+\f0\b \cf2 KEY
+\f1\b0 \cf0 ,\
+	\cf6 `from`\cf0  
+\f0\b \cf6 VARCHAR
+\f1\b0 \cf0 (\cf3 100\cf0 ),\
+	\cf6 `to`\cf0  
+\f0\b \cf6 VARCHAR
+\f1\b0 \cf0 (\cf3 100\cf0 )\
+)\cf4 ;\cf0 \
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0  c1.label 
+\f0\b \cf2 FROM
+\f1\b0 \cf0  cities c1\cf4 ;\cf0 \
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf0  
+\f0\b \cf2 INTO
+\f1\b0 \cf0  cities (label,city) 
+\f0\b \cf2 VALUES
+\f1\b0 \cf0  \
+(\cf7 'moscow'\cf0 ,\cf7 '\uc0\u1084 \u1086 \u1089 \u1082 \u1074 \u1072 '\cf0 ),\
+(\cf7 'irkutsk'\cf0 ,\cf7 '\uc0\u1080 \u1088 \u1082 \u1091 \u1090 \u1089 \u1082 '\cf0 ),\
+(\cf7 'novgorod'\cf0 ,\cf7 '\uc0\u1085 \u1086 \u1074 \u1075 \u1086 \u1088 \u1086 \u1076 '\cf0 ),\
+(\cf7 'omsk'\cf0 ,\cf7 '\uc0\u1086 \u1084 \u1089 \u1082 '\cf0 ),\
+(\cf7 'kazan'\cf0 ,\cf7 '\uc0\u1082 \u1072 \u1079 \u1072 \u1085 \u1100 '\cf0 )\cf4 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf0  
+\f0\b \cf2 INTO
+\f1\b0 \cf0  flights (\cf6 `from`\cf0 ,\cf6 `to`\cf0 ) 
+\f0\b \cf2 VALUES
+\f1\b0 \cf0  \
+(\cf7 'moscow'\cf0 ,\cf7 'omsk'\cf0 ),\
+(\cf7 'novgorod'\cf0 ,\cf7 'kazan'\cf0 ),\
+(\cf7 'irkutsk'\cf0 ,\cf7 'moscow'\cf0 ),\
+(\cf7 'omsk'\cf0 ,\cf7 'irkutsk'\cf0 ),\
+(\cf7 'moscow'\cf0 ,\cf7 'kazan'\cf0 )\cf4 ;\cf0 \
+\
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0  c1.city, c2.city 
+\f0\b \cf2 FROM
+\f1\b0 \cf0  flights f 
+\f0\b \cf2 LEFT
+\f1\b0 \cf0  
+\f0\b \cf2 JOIN
+\f1\b0 \cf0  cities c1 
+\f0\b \cf2 ON
+\f1\b0 \cf0  f.\cf6 `from`\cf0  = c1.label 
+\f0\b \cf2 LEFT
+\f1\b0 \cf0  
+\f0\b \cf2 JOIN
+\f1\b0 \cf0  cities c2 
+\f0\b \cf2 ON
+\f1\b0 \cf0  f.\cf6 `to`\cf0  = c2.label\cf4 ;\cf0 \
+\cf5 -- \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  1.3\cf0 \
+\
+}
